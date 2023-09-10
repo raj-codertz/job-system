@@ -4,8 +4,10 @@ import { useState } from 'react';
 import { useDashboardContext } from '../pages/DashboardLayout';
 
 const LogoutContainer = () => {
+
     const[showLogout, setShowLogout] = useState(false)
     const { user, logoutUser } = useDashboardContext()
+
     return (
         <Wrapper>
             <button type='button' className='btn logout-btn' onClick={() => setShowLogout(!showLogout)}>
