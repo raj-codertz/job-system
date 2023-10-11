@@ -3291,7 +3291,7 @@ export default router;
 
 #### User Routes
 
-controllers/userController.js
+controllers/authController.js
 
 ```js
 import { StatusCodes } from 'http-status-codes';
@@ -3321,7 +3321,7 @@ import {
   getCurrentUser,
   getApplicationStats,
   updateUser,
-} from '../controllers/userController.js';
+} from '../controllers/authController.js';
 
 router.get('/current-user', getCurrentUser);
 router.get('/admin/app-stats', getApplicationStats);
@@ -5013,7 +5013,7 @@ cloudinary.config({
 
 #### Update User Controller
 
-controllers/userController.js
+controllers/authController.js
 
 ```js
 import cloudinary from 'cloudinary';
@@ -6220,7 +6220,7 @@ export const formatImage = (file) => {
 export default upload;
 ```
 
-controller/userController.js
+controller/authController.js
 
 ```js
 import { formatImage } from '../middleware/multerMiddleware.js';
