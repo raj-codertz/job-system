@@ -10,18 +10,21 @@ import Job from '../models/jobModel.js'
 // import {NotFoundError} from "../errors/customErrors.js"
 
 export const getAllJobs = async (req , res) => {
-    const jobs = await Job.find({})
+    // console.log(req.user)
+    const jobs = await Job.find({ createdBy: req.user.userId })
     res.status(StatusCodes.OK).json({jobs})
 }
 
 export const createJob = async (req, res) => {
     // const { company, position } = req.body
+
+    // attaching createdBy into req body since it's required from job model and we get userId from auth middleware
+    req.body.createdBy = req.user.userId
     const job = await Job.create( req.body )
     return res.status(StatusCodes.CREATED).json({ job })
 }
 
 export const getJob = async (req, res) => {
-    // const { id } = req.params
     const job = await Job.findById(req.params.id)
       // if (!job) throw new NotFoundError(`no job with id ${id}`)
       res.status(StatusCodes.OK).json({ job })

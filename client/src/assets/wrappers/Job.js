@@ -77,5 +77,4 @@ const Wrapper = styled.article`
     margin-right: 0.5rem;
   }
 `;
-
 export default Wrapper;
