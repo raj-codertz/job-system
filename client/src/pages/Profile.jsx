@@ -4,9 +4,9 @@ import { useOutletContext } from 'react-router-dom';
 import { useNavigation, Form } from 'react-router-dom';
 import customFetch from '../utils/customFetch';
 import { toast } from 'react-toastify';
-import {request} from "axios";
+// import {request} from "axios";
 
-export const action = async () => {
+export const action = async ({ request }) => {
    const formData = await request.formData()
 // formData has an interface of get method which provide input we want to access
     const file = formData.get('avatar')
