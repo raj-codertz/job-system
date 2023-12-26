@@ -13,7 +13,7 @@ export const getApplicationStats = async (req, res) => {
     res.status(StatusCodes.OK).json({ user, job })
 }
 export const updateUser = async (req, res) => {
-
+    console.log(req.file);
     // removing password from req.body just in case if its in there since it doesn't use it for update
     const obj = { ...req.body }
     delete obj.password
