@@ -28,7 +28,7 @@ export const updateUser = async (req, res) => {
     // this updateUser return an old instances of user's details then
     const updatedUser = await User.findByIdAndUpdate( req.user.userId, newUser)
 
-    // checking if an old file avatar exist and delete from cloudinary
+    // checking if an old file avatar exist and delete from cloudinary from an old instance of user
     if (req.file && updatedUser.avatarPublicId) {
         await cloudinary.v2.uploader.destroy(updatedUser.avatarPublicId)
     }
